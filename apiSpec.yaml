@@ -13,6 +13,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/players'
+  /saves/:
+    post:
+      summary: saves game state
+      responses:
+        '200':
+          description: world was saved
+          content:
+            application/json:
+              schema:
+                $ref: ''
 components:
   schemas:
     players:
@@ -22,3 +32,6 @@ components:
           type: array
           items:
             type: string
+    saveInfo:
+      type:
+        object:
