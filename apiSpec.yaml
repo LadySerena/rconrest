@@ -1,0 +1,24 @@
+openapi: "3.0.0"
+info:
+  title: "rest api for minecraft rcon"
+  version: 0.1.0-alpha
+paths:
+  /players/:
+    get:
+      summary: lists all current players on the server
+      responses:
+        '200':
+          description: successful list players request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/players'
+components:
+  schemas:
+    players:
+      type: object
+      properties:
+        playerList:
+          type: array
+          items:
+            type: string

@@ -6,3 +6,5 @@ golang rest api to interface with the minecraft rcon (remote console)
 # References
 
 https://wiki.vg/RCON
+
+[golang rcon ref](https://pkg.go.dev/github.com/Tnze/go-mc@v1.15.1/net?tab=doc) 
