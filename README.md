@@ -1,6 +1,6 @@
 # rcon rest
 
-golang rest api to interface with the minecraft rcon (remote console)
+golang rest api to interface with the minecraft rcon (remote console). This is deployed as a gcp cloud function.
 
 
 # References
