@@ -12,26 +12,107 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/players'
+                $ref: '#/components/schemas/playersList'
+        '401':
+          description: unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/problemJson'
+        '503':
+          description: cannot talk to downstream minecraft server
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/problemJson'
+    post:
+      summary: sets atributes for the players
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/playerAttributes'
+      responses:
+        '200':
+          description: player attributes successfully updated
+        '400':
+          description: there was a problem with the request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/problemJson'
+        '401':
+          description: unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/problemJson'
+        '503':
+          description: cannot talk to downstream minecraft server
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/problemJson'
   /saves/:
     post:
       summary: saves game state
       responses:
         '200':
-          description: world was saved
+          description: saved world
           content:
             application/json:
               schema:
-                $ref: ''
+                $ref: '#/components/schemas/saveInfo'
+        '401':
+          description: unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/problemJson'
+        '503':
+          description: cannot talk to downstream minecraft server
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/problemJson'
 components:
   schemas:
-    players:
+    playersList:
       type: object
       properties:
         playerList:
           type: array
           items:
             type: string
+    playerAttributes:
+      type: object
+      properties:
+        playerAtributes:
+          type: array
+          items:
+            type: object
+            properties:
+              username:
+                type: string
+              uuid:
+                type: string
+              whitelist:
+                type: boolean
+              operator:
+                type: boolean
+              banned:
+                type: boolean
     saveInfo:
-      type:
-        object:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: 'date-time'
+    problemJson:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: 'date-time'
+        errorString:
+          type: string
