@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/LadySerena/rconrest/pkg/api"
 	"log"
 	"net/http"
 	"os"
@@ -9,6 +10,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/serena", api.SerenaHandler)
 
 	// [START setting_port]
 	port := os.Getenv("PORT")
