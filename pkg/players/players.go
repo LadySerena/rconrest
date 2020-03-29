@@ -20,7 +20,9 @@ var (
 )
 
 func init() {
-	rcon, err := mcNet.DialRCON("127.0.0.1:25575", "T4Yk7QF2wV9kjdwcQfZc2CmwxLkInxfL")
+	address := ""
+	password := ""
+	rcon, err := mcNet.DialRCON(address, password)
 	if err != nil {
 		panic(err)
 	}
