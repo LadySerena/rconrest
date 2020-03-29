@@ -2,5 +2,9 @@ steps:
 - name: docker
   args: ['build', '.']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy', './cmd/rcon-rest/']
-  timeout: '10m0s'
+  args:
+      - functions
+      - deploy
+      - helloWorld
+      - '--runtime go113'
+      - '--trigger-http'
