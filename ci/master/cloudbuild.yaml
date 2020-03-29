@@ -2,5 +2,5 @@ steps:
 - name: docker
   args: ['build', '.']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy']
-  timeout: '1600s'
+  args: ['app', 'deploy', './cmd/rcon-rest/']
+  timeout: '10m0s'
