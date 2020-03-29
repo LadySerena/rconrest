@@ -6,5 +6,6 @@ steps:
       - functions
       - deploy
       - helloWorld
-      - '--runtime go113'
+      - '--runtime'
+      - 'go113'
       - '--trigger-http'
