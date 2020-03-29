@@ -20,6 +20,7 @@ var (
 )
 
 func init() {
+	//todo move rcon stuff into another package
 	address := ""
 	password := ""
 	rcon, err := mcNet.DialRCON(address, password)
