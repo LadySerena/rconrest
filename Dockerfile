@@ -5,7 +5,6 @@ RUN mkdir -p /workspace
 WORKDIR /workspace
 COPY go.mod ./
 RUN go mod download -json
-COPY cmd ./cmd
 COPY pkg ./pkg
 RUN go build ./...
 RUN go test ./...
