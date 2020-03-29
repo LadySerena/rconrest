@@ -5,7 +5,8 @@ steps:
   args:
       - functions
       - deploy
-      - helloWorld
+      - HelloHTTP
+      - '--source=./pkg/helloworld'
       - '--runtime'
       - 'go113'
       - '--trigger-http'
